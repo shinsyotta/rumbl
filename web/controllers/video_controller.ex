@@ -8,7 +8,7 @@ defmodule Rumbl.VideoController do
       [conn, conn.params, conn.assigns.current_user])
   end
 
-  def index(conn, _params) do
+  def index(conn, _params, user) do
     videos = Repo.all(user_videos(user))
     render(conn, "index.html", videos: videos)
   end
